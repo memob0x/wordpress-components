@@ -1,7 +1,6 @@
 {
     "name": "memob0x/wordpress-components",
     "type": "package",
-    "version": "0.1.0",
     "description": "Components resources for wordpress ssr",
     "require-dev": {},
     "scripts": {},
