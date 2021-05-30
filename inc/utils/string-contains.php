@@ -1,6 +1,6 @@
 <?php
 
-function vwpt_string_contains($string, $needle)
+function wcpt_string_contains($string, $needle)
 {
     return strpos($string, $needle) !== false;
 }

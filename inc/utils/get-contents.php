@@ -1,6 +1,6 @@
 <?php
 
-function vwpt_get_contents($predicate)
+function wcpt_get_contents($predicate)
 {
     ob_start();
 

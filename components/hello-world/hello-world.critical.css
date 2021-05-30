@@ -1,0 +1,3 @@
+[data-component="hello-world"]:before {
+    content: 'hello-world component critical css';
+}

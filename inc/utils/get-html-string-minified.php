@@ -1,6 +1,6 @@
 <?php
 
-function get_html_string_minified($code)
+function wcpt_get_html_string_minified($code)
 {
     $search = array(
         // Remove whitespaces after tags

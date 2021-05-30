@@ -1,7 +1,9 @@
 <?php
 
-get_header();
+get_header(); ?>
 
-vwpt_render_component('app-hello-world', 'homepage example');
+<div data-component="hello-world">
+    Hello world!
+</div><?php
 
 get_footer();

@@ -1,6 +1,6 @@
 <?php
 
-function vwpt_array_find($array, $predicate)
+function wcpt_array_find($array, $predicate)
 {
     if (!is_callable($predicate)) {
         return null;

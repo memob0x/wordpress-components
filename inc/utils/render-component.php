@@ -1,6 +1,6 @@
 <?php
 
-function vwpt_render_component($component_name, $component_contents, $attributes = array())
+function wcpt_render_component($component_name, $component_contents, $attributes = array())
 {
     $output = '<' . $component_name;
 
@@ -12,7 +12,7 @@ function vwpt_render_component($component_name, $component_contents, $attributes
 
     $output .= '>';
 
-    $output .= is_callable($component_contents) ? vwpt_get_contents($component_contents) : $component_contents;
+    $output .= is_callable($component_contents) ? wcpt_get_contents($component_contents) : $component_contents;
 
     $output .= '</' . $component_name . '>';
 

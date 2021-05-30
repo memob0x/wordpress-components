@@ -30,7 +30,7 @@ add_action('wp_footer', function () {
         $rendered_components_name = preg_replace('/<|>|\s/', '', $component_rendered);
 
         foreach ($wp_styles->registered as $style) {
-            $component_resource_name = $rendered_components_name . VWPT_NAME_SUFFIX_CRITICAL;
+            $component_resource_name = $rendered_components_name . WCPT_NAME_SUFFIX_CRITICAL;
 
             if ($style->handle !== $component_resource_name) {
                 continue;
@@ -38,9 +38,9 @@ add_action('wp_footer', function () {
 
             $style_src = $style->src;
 
-            $style_path = vwpt_replace_uri_with_path($style_src);
+            $style_path = wcpt_replace_uri_with_path($style_src);
 
-            $critical_css = vwpt_get_contents(function () use ($style_path) {
+            $critical_css = wcpt_get_contents(function () use ($style_path) {
                 include $style_path;
             });
 
@@ -85,8 +85,8 @@ add_action('wp_print_footer_scripts', function () {
     echo preg_replace(
         '/<!doctype(.*?)>/i',
 
-        '${0}<!--v' . VWPT_VERSION . '-->',
+        '${0}<!--v' . WCPT_VERSION . '-->',
 
-        get_html_string_minified($site_contents_stream)
+        wcpt_get_html_string_minified($site_contents_stream)
     );
 });
