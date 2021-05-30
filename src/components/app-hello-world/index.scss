@@ -1,0 +1,9 @@
+.app-hello-world {
+    critical-selector: this;
+    background: green;
+    display: block;
+
+    &::before {
+        content: 'hello world!';
+    }
+}

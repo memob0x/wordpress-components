@@ -1,0 +1,8 @@
+{
+    "name": "memob0x/vue-wp-parent-theme",
+    "type": "package",
+    "description": "Vue components and Ajax navigation for WordPress server-side rendered websites",
+    "require-dev": {},
+    "scripts": {},
+    "license": "MIT"
+}
