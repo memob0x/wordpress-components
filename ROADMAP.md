@@ -14,7 +14,7 @@
         +
         <script nomodule src="component.nomodule.js">
     [ ] api routes for existent components returns resources urls
-        http://localhost/wp-json/wcpt/v1/components/app-foobar
+        http://localhost/wp-json/wpcs/v1/components/app-foobar
         {
             "css": "https://",
             "css-async": null,
