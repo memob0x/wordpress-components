@@ -25,6 +25,6 @@
         }
 
 # 0.1.1
-    [ ] wp hook to change components directory
-    [ ] wp hook to change components resources inclusion priority
-    [ ] wp hook to change components resources inclusion location (for scripts)
+    [ ] wp plugin option to change components directory
+    [ ] wp plugin option to change components resources inclusion priority
+    [ ] wp plugin option to change components resources inclusion location (for scripts)
