@@ -122,6 +122,17 @@ class Wpcs {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wpcs-public.php';
 
+        /**
+         *
+         */
+        foreach (array_merge(
+            glob(plugin_dir_path(dirname( __FILE__ )).'utils/*.php'),
+
+            glob(plugin_dir_path(dirname( __FILE__ )).'hooks/*.php')
+        ) as $filename) {
+            require_once $filename;
+        }
+
 		$this->loader = new Wpcs_Loader();
 
 	}
