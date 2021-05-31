@@ -35,5 +35,7 @@ The following component render...
 
 ## Implementation Examples
 
-* [Live reload](docs/LIVE-RELOAD.md)
-* [Hot reload](docs/HOT-RELOAD.md)
+* [Vanilla live reload](docs/VANILLA-LIVE-RELOAD.md)
+* [Vanilla hot reload](docs/VANILLA-HOT-RELOAD.md)
+* [Vanilla web component](docs/VANILLA-WEB-COMPONENT.md)
+* [Reactive framework (Vue)](docs/VUE.md)
