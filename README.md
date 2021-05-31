@@ -6,9 +6,10 @@ After its installation it is possible to define js and css files in the componen
 
 The plugin also adds a basic support for asynchronous js and css files in wordpress, through type="module" and nomodule script tag attributes and rel="preload" link attribute, along with critical stylesheets.
 
+## How-to
 The following component render...
 ```html
-<div data-attribute="example-component">
+<div data-component="example-component">
     I'm an example component
 </div>
 ```
@@ -16,20 +17,18 @@ The following component render...
 ...would cause the following resources to be enqueued:
 
 * _your-theme-folder/components/example-component/**example-component.js**_
-
-    Included before the `body` tag closing as a _classic_ `script` tag
 * _your-theme-folder/components/example-component/**example-component.esm.js**_
-
-    Included before the `body` tag closing as `script` tag with `module` _type_ attribute
 * _your-theme-folder/components/example-component/**example-component.nomodule.js**_
-
-    Included before the `body` tag closing as a `script` tag with `nomodule` attribute for browsers that don't support esm module
 * _your-theme-folder/components/example-component/**example-component.css**_
-
-    Included in `head` as a classic `link` tag
 * _your-theme-folder/components/example-component/**example-component.async.css**_
-
-    Included in `head` twice: as a `link` tag with [_rel_ `preload` attribute](https://www.filamentgroup.com/lab/async-css.html) as a classic `link` tag, and as a classic `link` tag as a fallback for browsers that don't support async modules
 * _your-theme-folder/components/example-component/**example-component.critical.css**_
 
-    Its content is included in `head` in a `style` tag
+## Scripts
+* **example-component.js**: is included before the `body` closing tag as a _classic_ `script` tag
+* **example-component.esm.js**: is included before the `body` closing tag as `script` tag with `module` _type_ attribute
+* **example-component.nomodule.js**: is included before the `body` closing tag as a `script` tag with `nomodule` attribute for browsers that don't support esm module
+
+## Styles
+* **example-component.css**: is included in `head` as a classic `link` tag
+* **example-component.async.css**: is included in `head` twice: as a `link` tag with [_rel_ `preload` attribute](https://www.filamentgroup.com/lab/async-css.html) as a classic `link` tag, and as a classic `link` tag as a fallback for browsers that don't support async modules
+* **example-component.critical.css**: its content is included in `head` in a `style` tag
