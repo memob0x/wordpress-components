@@ -1,2 +1,35 @@
 # Wordpress Components
 
+Wordpress Components is a [WordPress](https://wordpress.com/it) plugin that aims to enhance [web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) integration on WordPress server-side-rendered websites.
+
+After its installation it is possible to define js and css files in the components folder in the root of the theme used, decreeing their automatic inclusion when a component of the same name as `data-component` attribute value is rendered.
+
+The plugin also adds a basic support for asynchronous js and css files in wordpress, through type="module" and nomodule script tag attributes and rel="preload" link attribute, along with critical stylesheets.
+
+The following component render...
+```html
+<div data-attribute="example-component">
+    I'm an example component
+</div>
+```
+
+...would cause the following resources to be enqueued:
+
+* _your-theme-folder/components/example-component/**example-component.js**_
+
+    Included before the `body` tag closing as a _classic_ `script` tag
+* _your-theme-folder/components/example-component/**example-component.esm.js**_
+
+    Included before the `body` tag closing as `script` tag with `module` _type_ attribute
+* _your-theme-folder/components/example-component/**example-component.nomodule.js**_
+
+    Included before the `body` tag closing as a `script` tag with `nomodule` attribute for browsers that don't support esm module
+* _your-theme-folder/components/example-component/**example-component.css**_
+
+    Included in `head` as a classic `link` tag
+* _your-theme-folder/components/example-component/**example-component.async.css**_
+
+    Included in `head` twice: as a `link` tag with [_rel_ `preload` attribute](https://www.filamentgroup.com/lab/async-css.html) as a classic `link` tag, and as a classic `link` tag as a fallback for browsers that don't support async modules
+* _your-theme-folder/components/example-component/**example-component.critical.css**_
+
+    Its content is included in `head` in a `style` tag
