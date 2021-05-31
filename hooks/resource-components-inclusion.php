@@ -28,7 +28,7 @@ add_action('wp_footer', function () {
             $style_src = $style->src;
 
             $is_critical = wpcs_string_contains($style_name, $component_name . '-critical');
-            $is_async = wpcs_string_contains($style_name, $component_name . '-async');
+            $is_lazy = wpcs_string_contains($style_name, $component_name . '-lazy');
 
             if ($is_critical) {
                 $style_path = str_replace(get_template_directory_uri(), get_template_directory(), $style_src);
@@ -38,15 +38,14 @@ add_action('wp_footer', function () {
                     include $style_path;
                 });
 
-                $css_critical .= '<style type="text/css">' . $critical_css . '</style>';
+                $css_critical .= '<style type="text/css" data-href="'.$style_src.'">' . $critical_css . '</style>';
             }
 
-            if ($is_async) {
-                $css_async .= '<link rel="preload" href="' . $style_src . '" as="style" onload="this.rel=\'stylesheet\'" />';
-                $css_async .= '<link rel="stylesheet" href="' . $style_src . '" />';
+            if ($is_lazy) {
+                $css_async .= '<link rel="stylesheet" data-href="' . $style_src . '" />';
             }
 
-            if (!$is_critical && !$is_async && wpcs_string_contains($style_name, $component_name)) {
+            if (!$is_critical && !$is_lazy && wpcs_string_contains($style_name, $component_name)) {
                 $css_rb .= '<link rel="stylesheet" href="' . $style_src . '" />';
             }
         }

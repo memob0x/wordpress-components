@@ -29,7 +29,7 @@ function wpcs_foreach_component($callable)
 
             'css' => file_exists($path . '/' . $component_name . '.css') ? $uri . '/' . $component_name . '.css' : null,
 
-            'css-async' => file_exists($path . '/' . $component_name . '.async.css') ? $uri . '/' . $component_name . '.async.css' : null,
+            'css-lazy' => file_exists($path . '/' . $component_name . '.lazy.css') ? $uri . '/' . $component_name . '.lazy.css' : null,
 
             'css-critical' => file_exists($path . '/' . $component_name . '.critical.css') ? $uri . '/' . $component_name . '.critical.css' : null
         ));

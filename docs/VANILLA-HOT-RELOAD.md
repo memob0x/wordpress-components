@@ -68,7 +68,7 @@ export default {
 
         loadComponentStyles([
             vm.data['css-critical'],
-            vm.data['css-async'],
+            vm.data['css-lazy'],
             vm.data['css']
         ]);
     },

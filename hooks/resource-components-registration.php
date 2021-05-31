@@ -27,8 +27,8 @@ add_action('wp', function () {
                 wp_register_style($component_name, $css, array(), false);
             }
 
-            if ($css = $component_data['css-async']) {
-                wp_register_style($component_name . '-async', $css, array(), false);
+            if ($css = $component_data['css-lazy']) {
+                wp_register_style($component_name . '-lazy', $css, array(), false);
             }
 
             if ($css = $component_data['css-critical']) {

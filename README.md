@@ -1,41 +1,42 @@
 # Wordpress Components
 
-Wordpress Components is a [WordPress](https://wordpress.com/it) plugin that aims to enhance [web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) integration on WordPress server-side-rendered websites.
+Wordpress Components is a [WordPress](https://wordpress.com/it) plugin that aims to automate css and js resources inclusion in a WordPress server-side-rendered installation, as a consequence it naturally enhances code splitting and paves the way for [web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) integration.
 
-After its installation it is possible to define js and css files in the components folder in the root of the theme used, decreeing their automatic inclusion when a component of the same name as `data-component` attribute value is rendered.
+The plugin also adds a basic support for critical css, js modules (esm) and lazy css.
 
-The plugin also adds a basic support for asynchronous js and css files in wordpress, through type="module" and nomodule script tag attributes and rel="preload" link attribute, along with critical stylesheets.
-
-## How-to
-The following component render...
+Rendering the following element...
 ```html
 <div data-component="example-component">
     I'm an example component
 </div>
 ```
 
-...would cause the following resources to be enqueued (if present):
+...will result in the inclusion of the following resources (if present, none of them is mandatory):
 
-* _your-theme-folder/components/example-component/**example-component.js**_
-* _your-theme-folder/components/example-component/**example-component.esm.js**_
-* _your-theme-folder/components/example-component/**example-component.nomodule.js**_
-* _your-theme-folder/components/example-component/**example-component.css**_
-* _your-theme-folder/components/example-component/**example-component.async.css**_
-* _your-theme-folder/components/example-component/**example-component.critical.css**_
+* your-theme-folder/components/example-component/**example-component.js**
+* your-theme-folder/components/example-component/**example-component.esm.js**
+* your-theme-folder/components/example-component/**example-component.nomodule.js**
+* your-theme-folder/components/example-component/**example-component.css**
+* your-theme-folder/components/example-component/**example-component.lazy.css**
+* your-theme-folder/components/example-component/**example-component.critical.css**
 
 ## Scripts
-* **example-component.js**: is included before the `body` closing tag as a _classic_ `script` tag
-* **example-component.esm.js**: is included before the `body` closing tag as `script` tag with `module` _type_ attribute
-* **example-component.nomodule.js**: is included before the `body` closing tag as a `script` tag with `nomodule` attribute for browsers that don't support esm module
+All rendered before the `body` closing tag.
+
+* **example-component.js**: render-blocking resource.
+* **example-component.esm.js**: deferred [`type="module"` (esm) resource](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
+* **example-component.nomodule.js**: render-blocking [`nomodule` (**esm fallback**) resource](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-nomodule).
 
 ## Styles
-* **example-component.css**: is included in `head` as a classic `link` tag
-* **example-component.async.css**: is included in `head` twice: as a `link` tag with [_rel_=`preload` attribute along with an onload event](https://www.filamentgroup.com/lab/async-css.html#a-modern-approach), and as a classic `link` tag as a fallback for browsers that don't support the forsaid preload attribute
-* **example-component.critical.css**: its content is included in `head` in a `style` tag
+All rendered before the `head` closing tag.
 
-## Implementation Examples
+* **example-component.css**: render-blocking resource.
+* **example-component.lazy.css**: lazy `data-href` resource, it needs to be loaded programmatically with js.
+* **example-component.critical.css**: render-blocking `style` tag.
+
+## Implementation Concepts
 
 * [Vanilla live reload](docs/VANILLA-LIVE-RELOAD.md)
 * [Vanilla hot reload](docs/VANILLA-HOT-RELOAD.md)
-* [Vanilla web component](docs/VANILLA-WEB-COMPONENT.md)
+* [Vanilla web components](docs/VANILLA-WEB-COMPONENT.md)
 * [Reactive framework (Vue)](docs/VUE.md)
