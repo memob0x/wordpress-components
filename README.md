@@ -30,5 +30,10 @@ The following component render...
 
 ## Styles
 * **example-component.css**: is included in `head` as a classic `link` tag
-* **example-component.async.css**: is included in `head` twice: as a `link` tag with [_rel_ `preload` attribute](https://www.filamentgroup.com/lab/async-css.html) as a classic `link` tag, and as a classic `link` tag as a fallback for browsers that don't support async modules
+* **example-component.async.css**: is included in `head` twice: as a `link` tag with [_rel_=`preload` attribute along with an onload event](https://www.filamentgroup.com/lab/async-css.html#a-modern-approach), and as a classic `link` tag as a fallback for browsers that don't support the forsaid preload attribute
 * **example-component.critical.css**: its content is included in `head` in a `style` tag
+
+## Implementation Examples
+
+* [Live reload](docs/LIVE-RELOAD.md)
+* [Hot reload](docs/HOT-RELOAD.md)
