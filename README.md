@@ -14,7 +14,7 @@ The following component render...
 </div>
 ```
 
-...would cause the following resources to be enqueued:
+...would cause the following resources to be enqueued (if present):
 
 * _your-theme-folder/components/example-component/**example-component.js**_
 * _your-theme-folder/components/example-component/**example-component.esm.js**_
