@@ -1,6 +1,6 @@
 <?php
 
-add_filter('script_loader_tag', function ($tag, $handle, $src) {
+function wpcs_get_script_tag ($tag, $handle, $src) {
     $basename = basename($src);
     $esc_url = esc_url($src);
 
@@ -13,4 +13,6 @@ add_filter('script_loader_tag', function ($tag, $handle, $src) {
     }
 
     return $tag;
-}, 10, 3);
+};
+
+add_filter('script_loader_tag', 'wpcs_get_script_tag', 10, 3);

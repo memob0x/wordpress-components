@@ -18,9 +18,9 @@ add_action('wp_footer', function () {
 
     $components_rendered = $components_rendered[1];
 
-    $css_critical = '';
-    $css_async = '';
-    $css_rb = '';
+    $css_critical = array();
+    $css_lazy = array();
+    $css_rb = array();
 
     foreach ($components_rendered as $component_name) {
         foreach ($wp_styles->registered as $style) {
@@ -31,22 +31,15 @@ add_action('wp_footer', function () {
             $is_lazy = wpcs_string_contains($style_name, $component_name . '-lazy');
 
             if ($is_critical) {
-                $style_path = str_replace(get_template_directory_uri(), get_template_directory(), $style_src);
-                $style_path = str_replace(get_stylesheet_directory_uri(), get_stylesheet_directory(), $style_path);
-
-                $critical_css = wpcs_get_contents(function () use ($style_path) {
-                    include $style_path;
-                });
-
-                $css_critical .= '<style type="text/css" data-href="'.$style_src.'">' . $critical_css . '</style>';
+                $css_critical[] = $style_src;
             }
 
             if ($is_lazy) {
-                $css_async .= '<link rel="stylesheet" data-href="' . $style_src . '" />';
+                $css_lazy[] = $style_src;
             }
 
             if (!$is_critical && !$is_lazy && wpcs_string_contains($style_name, $component_name)) {
-                $css_rb .= '<link rel="stylesheet" href="' . $style_src . '" />';
+                $css_rb[] = $style_src;
             }
         }
 
@@ -59,7 +52,10 @@ add_action('wp_footer', function () {
         }
     }
 
-    $head_resources_contents .= $css_critical . $css_rb . $css_async;
+    foreach (array_merge($css_critical, $css_lazy, $css_rb) as $src) {
+        // NOTE: too late to fire wp_enqueue_style, styles would be embedded inside body at this point
+        $head_resources_contents .= wpcs_get_style_tag('', '', $src);
+    }
 
     $output_before_tag_end = '</head>';
 
