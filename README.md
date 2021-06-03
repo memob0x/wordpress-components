@@ -36,4 +36,4 @@ All rendered before the `head` closing tag.
 
 ## Implementation Concept
 
-* [live demo](#): A really simple hot-reload component-based fe integration written in vanilla js based on this plugin specifications
+* [Live demo](https://z8cq3.sse.codesandbox.io/) -  A really simple hot-reload component-based front-end integration written in vanilla js based on this plugin specifications.
