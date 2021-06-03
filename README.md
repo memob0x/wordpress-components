@@ -17,8 +17,8 @@ Rendering the following element...
 * your-theme-folder/components/example-component/**example-component.esm.js**
 * your-theme-folder/components/example-component/**example-component.nomodule.js**
 * your-theme-folder/components/example-component/**example-component.css**
-* your-theme-folder/components/example-component/**example-component.lazy.css**
 * your-theme-folder/components/example-component/**example-component.critical.css**
+* your-theme-folder/components/example-component/**example-component.lazy.css**
 
 ## Scripts
 All rendered before the `body` closing tag.
@@ -31,8 +31,8 @@ All rendered before the `body` closing tag.
 All rendered before the `head` closing tag.
 
 * **example-component.css**: render-blocking resource.
-* **example-component.lazy.css**: lazy `data-href` resource, it needs to be loaded programmatically with js.
 * **example-component.critical.css**: render-blocking `style` tag.
+* **example-component.lazy.css**: lazy `data-href` resource, it needs to be loaded programmatically with js.
 
 ## Implementation Concept
 
