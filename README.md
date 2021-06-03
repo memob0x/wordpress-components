@@ -34,9 +34,6 @@ All rendered before the `head` closing tag.
 * **example-component.lazy.css**: lazy `data-href` resource, it needs to be loaded programmatically with js.
 * **example-component.critical.css**: render-blocking `style` tag.
 
-## Implementation Concepts
+## Implementation Concept
 
-* [Vanilla live reload](docs/VANILLA-LIVE-RELOAD.md)
-* [Vanilla hot reload](docs/VANILLA-HOT-RELOAD.md)
-* [Vanilla web components](docs/VANILLA-WEB-COMPONENT.md)
-* [Reactive framework (Vue)](docs/VUE.md)
+* [live demo](#)

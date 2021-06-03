@@ -21,7 +21,7 @@ add_action('rest_api_init', function () {
     ));
 
     // http://localhost/wp-json/wpcs/v1/components/component
-    register_rest_route('wpcs/v1', '/components/(?P<name>([a-zA-Z-]+))', array(
+    register_rest_route('wpcs/v1', '/components/(?P<name>([a-zA-Z0-9-_]+))', array(
         'methods' => 'GET',
 
         'callback' => function ($data) use ($components) {
