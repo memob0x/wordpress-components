@@ -1,6 +1,8 @@
 # Wordpress Components
 
-Wordpress Components is a [WordPress](https://wordpress.com/it) [plugin](https://wordpress.org/support/article/managing-plugins/) that aims to automate css and js resources inclusion in a WordPress server-side-rendered installation, as a consequence it naturally enhances code splitting and paves the way for [web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) integration.
+Don't give up on code-splitting and logic encapsulation when working on server-side rendered WordPress.
+
+Wordpress Components is a [WordPress](https://wordpress.com/it) [plugin](https://wordpress.org/support/article/managing-plugins/) that aims to automate css and js resources inclusion, as a consequence, it naturally enhances code splitting and paves the way for [web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) integration.
 
 The plugin also adds a basic support for critical css, js modules (esm) and lazy css to WordPress.
 
