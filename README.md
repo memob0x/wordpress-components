@@ -50,12 +50,15 @@ The plugin also enables the following endpoints:
     ```json
     {
         "name": "example-component",
-        "js": "path/to/components/example-component/example-component.js",
-        "js-esm": "path/to/components/example-component/example-component.esm.js",
-        "js-nomodule": "path/to/components/example-component/example-component.nomodule.js",
-        "css": "path/to/components/example-component/example-component.css",
-        "css-critical": "path/to/components/example-component/example-component.critical.css",
-        "css-lazy": "path/to/components/example-component/example-component.lazy.css"
+        "uri": "https://path/to/components/example-component/",
+        "js": [
+            "https://path/to/components/example-component/example-component.esm.js",
+            "https://path/to/components/example-component/example-component.any.kind.of.suffix.js",
+        ],
+        "css": [
+            "https://path/to/components/example-component/example-component.css",
+            "https://path/to/components/example-component/example-component.any.kind.of.suffix.css"
+        ]
     }
     ```
 
