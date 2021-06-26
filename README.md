@@ -61,7 +61,3 @@ The plugin also enables the following endpoints:
         ]
     }
     ```
-
-## Implementation Concept
-
-* [Live demo](https://xf726.sse.codesandbox.io/) -  A basic hot-reload component-based front-end integration written in vanilla js based on this plugin specifications.
