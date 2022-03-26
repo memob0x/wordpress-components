@@ -12,7 +12,7 @@ add_action('wp_footer', function () {
 
     ob_get_clean();
 
-    preg_match_all('/data-component="(.*?)"/m', $site_contents_stream, $components_rendered);
+    preg_match_all('/data-component-(\w*?)(?="|=|\s|\>)/m', $site_contents_stream, $components_rendered);
 
     $head_resources_contents = '';
 

@@ -14,8 +14,8 @@
  *
  * @wordpress-plugin
  * Plugin Name:       wordpress-components
- * Plugin URI:        wpcs
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Plugin URI:        https://github.com/memob0x/wordpress-components
+ * Description:       Automatically enqueue js and css resources when DOM elements are actually rendered. 
  * Version:           0.1.0
  * Author:            memob0x
  * Author URI:        https://github.com/memob0x
